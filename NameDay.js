@@ -33,23 +33,21 @@ export class NameDay {
       }
     })
 
-    if (response.status >= 300)
-      return 'Could not get nameday.'
-    
+    if (response.status >= 300) return 'Could not get nameday.'
+
     const body = await response.json()
-    
-    if (body['0'].length === 0)
-      return 'Could not get nameday.'
+
+    if (body['0'].length === 0) return 'Could not get nameday.'
 
     const result = body['0']
-    
+
     return 'Your nameday is on ' + this.#parseMonth(result[0].month) + ' ' + result[0].day + '!'
   }
 
   /**
    * Parses a month number to its string representation.
    *
-   * @param {int} monthNr - Month number.
+   * @param {number} monthNr - Month number.
    * @returns {string} - Month name.
    */
   #parseMonth (monthNr) {
