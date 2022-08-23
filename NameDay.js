@@ -17,11 +17,11 @@ export class NameDay {
   /**
    * Returns a string presentation of the given names nameday.
    *
-   * @param {String} name - The name whose nameday to look up.
-   * @returns {String} - A presentation of the nameday date.
+   * @param {string} name - The name whose nameday to look up.
+   * @returns {string} - A presentation of the nameday date.
    */
   async getDay (name) {
-    let url = new URL(this.#API_URL)
+    const url = new URL(this.#API_URL)
     url.searchParams.append('name', name)
     url.searchParams.append('country', this.#COUNTRY)
 
@@ -29,7 +29,7 @@ export class NameDay {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        Accept: 'application/json'
       }
     })
 
@@ -50,7 +50,7 @@ export class NameDay {
    * Parses a month number to its string representation.
    *
    * @param {int} monthNr - Month number.
-   * @returns {String} - Month name.
+   * @returns {string} - Month name.
    */
   #parseMonth (monthNr) {
     switch (monthNr) {
