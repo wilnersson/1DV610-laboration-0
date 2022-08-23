@@ -6,7 +6,7 @@
  */
 
 import promptSync from 'prompt-sync'
-import { NameDay } from './getNameday.js'
+import { NameDay } from './NameDay.js'
 
 const prompt = promptSync()
 const nameDay = new NameDay()
