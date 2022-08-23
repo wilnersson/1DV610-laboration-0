@@ -8,9 +8,48 @@
 import promptSync from 'prompt-sync'
 import { NameDay } from './NameDay.js'
 
-const prompt = promptSync()
-const nameDay = new NameDay()
+/**
+ * Starts the program.
+ */
+async function start () {
+  const prompt = promptSync()
+  const nameDay = new NameDay()
 
-const result = prompt('What is your name? ')
+  console.clear()
 
-console.log(await nameDay.getDay(result))
+  const result = prompt('What is your name? ')
+
+  const greeting = '### Greetings ' + result + '! ###'
+
+  console.log(createFiller(greeting))
+  console.log('\n' + await nameDay.getDay(result) + '\n\n')
+}
+
+/**
+ * Creates a nice looking string to display above the greeting.
+ *
+ * @param {string} greeting - The greeting to decorate.
+ * @returns {string} - Decoration string.
+ */
+function createFiller (greeting) {
+  let filler = '\n\n'
+  for (let i = 0; i < greeting.length; i++) {
+    if (i === 0) filler += '#'
+    if (i > 0 && i < greeting.length - 1) filler += ' '
+    if (i === greeting.length - 1) filler += '#'
+  }
+  filler += '\n'
+  for (let i = 0; i < greeting.length; i++) {
+    if (i <= 1) filler += '#'
+    if (i > 1 && i < greeting.length - 2) filler += ' '
+    if (i >= greeting.length - 2) filler += '#'
+  }
+  filler += '\n' + greeting + '\n'
+  for (let i = 0; i < greeting.length; i++) {
+    filler += '#'
+  }
+
+  return filler
+}
+
+start()
