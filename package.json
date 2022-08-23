@@ -15,6 +15,7 @@
   "author": "Henrik Wilnersson",
   "license": "ISC",
   "dependencies": {
+    "node-fetch": "^3.2.10",
     "prompt-sync": "^4.2.0"
   }
 }

@@ -6,9 +6,11 @@
  */
 
 import promptSync from 'prompt-sync'
+import { NameDay } from './getNameday.js'
 
 const prompt = promptSync()
+const nameDay = new NameDay()
 
 const result = prompt('What is your name? ')
 
-console.log(result)
+console.log(await nameDay.getDay(result))
